@@ -13,15 +13,15 @@ var app = app || {};
     //       populate it with the response from Github before you call the callback.
     
     $.ajax({
-      // url: 'https://api.github.com/morganlacouture/repos',
-      url: 'https://api.github.com/users/Robnit/repos',
+      url: 'https://api.github.com/users/morganlacouture/repos',
+      // url: 'https://api.github.com/users/Robnit/repos',
       method: 'GET',
       header: {
         'Authorization': `token ${TOKEN}`
       }
     }).then( data => {
-      // app.repoView.index();
-      callback;
+      repos.all= data;
+      callback();
 
       console.log( 'Data:', data );
     })
