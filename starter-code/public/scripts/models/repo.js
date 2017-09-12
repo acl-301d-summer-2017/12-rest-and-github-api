@@ -8,18 +8,21 @@ var app = app || {};
 
   repos.requestRepos = function(callback) {
     $.ajax ({ 
-      url: 'http://api.github/user/repos',
+      url: 'https://api.github.com/users/martsyalis/repos',
       method: 'GET',
       headers: { 'Authorization':` token ${TOKEN}` }
     })
       .then (data=> {
-        console.log('DATA:',data)
+
         repos.all = data;
         // data.map(function(currentValue) {
         //   repos.all.push(currentValue);
         // })
         console.log(repos.all)
+        callback(); 
       })
+    console.log ("repos:all",repos.all)
+     
   }
 
       
