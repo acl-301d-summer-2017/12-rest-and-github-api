@@ -12,8 +12,10 @@ var app = app || {};
     $about.show().siblings().hide();
   };
 
-  // TODO: Remember that new Handlebars template? Let's compile it!
+  // TODO/DONE: Remember that new Handlebars template? Let's compile it!
   // Save the result in this `render` variable.
+  var template = $('#repo-template').text()
+  var render = Handlebars.compile( template );
 
   repoView.index = function() {
     ui();
