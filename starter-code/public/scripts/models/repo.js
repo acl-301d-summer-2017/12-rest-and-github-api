@@ -8,15 +8,16 @@ var app = app || {};
 
   repos.requestRepos = function(callback) {
     $.ajax( {
-      url: 'http://api.github.com/users/christinamills/repos',
+      url: 'https://api.github.com/user/repos',
       method: 'GET',
       headers: {
         'Authorization': `token ${token}`
       }
     }).then(data => {
-      console.log('got the data');
+      console.log('got the data', data);
+      repos.all = data;
     }).then(callback)
-    // TODO: How would you like to fetch your repos? Don't forget to call the callback.
+    // TODO / DONE: How would you like to fetch your repos? Don't forget to call the callback.
     //       Remember that the callback function we'll want to call relies on repos.all
     //       being an array with a bunch of repo objects in it, so you'll need to
     //       populate it with the response from Github before you call the callback.
