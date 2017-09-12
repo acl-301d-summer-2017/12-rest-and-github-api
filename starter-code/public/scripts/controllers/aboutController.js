@@ -10,6 +10,16 @@ var app = app || {};
     // TODO: Call a function to load all the data.
     // Pass a view function as a callback, so the view will render after the data is loaded.
 
+    $.ajax({
+      url: 'https://api.github.com/morganlacouture/repos',
+      method: 'GET',
+      header: {
+        'Authorization': `token ${TOKEN}`
+      }
+    }).then( data => {
+      
+      console.log( 'Data:', data );
+    })
   };
 
   module.aboutController = aboutController;
